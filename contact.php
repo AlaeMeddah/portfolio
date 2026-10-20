@@ -1,5 +1,5 @@
 <section id="contact" class="contact">
-    <h2>contact</h2>
+    <h1>contact</h1>
     <div>
         <h3>envoyez moi un message</h3>
         <form id="contact_form">

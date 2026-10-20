@@ -1,5 +1,5 @@
 <section id="profil" class="profil">
-    <h2>À propos de moi</h2>
+    <h1>À propos de moi</h1>
     <div>
         <div>
             <h3>mon accroche</h3>

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-    <html lang="fr">
+<html lang="fr">
     <head>
-        <title>Portfolio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>
-            <button id="navButton">...</button>
-            <nav id="nav" name="nav">
-                <a href="#profil">profil</a>
-                <a href="#project">projects</a>
-                <a href="#contact">contact</a>
+        <aside id="explorer" aria-label="Explorer">
+            <div class="explorer-title">Explorer</div>
+            <nav id="nav">
+                <details open>
+                    <summary>portfolio</summary>
+                    <ul>
+                        <li><a href="#profil">profil.php</a></li>
+                        <li><a href="#project">project.php</a></li>
+                        <li><a href="#contact">contact.php</a></li>
+                    </ul>
+                </details>
             </nav>
-        </header>
+        </aside>
         <main>
             <?php include 'profil.php'; ?>
             <?php include 'project.php'; ?>

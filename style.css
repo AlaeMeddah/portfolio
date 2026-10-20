@@ -27,7 +27,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 56px;
+    scroll-padding-top: 16px;
 }
 
 body {
@@ -66,62 +66,99 @@ a:hover {
     text-decoration: underline;
 }
 
-/* ---------- Header = editor tabs ---------- */
-header {
-    position: sticky;
+/* ---------- Explorer (fixed sidebar) ---------- */
+#explorer {
+    position: fixed;
     top: 0;
+    bottom: 26px;
+    left: 0;
+    width: 240px;
     z-index: 10;
-    display: flex;
-    align-items: stretch;
     background: var(--bg-side);
-    border-bottom: 1px solid var(--border);
-    height: 40px;
-}
-
-/* the "..." button looks like the VS Code tab menu; nav stays visible */
-#navButton {
-    background: none;
-    border: none;
     border-right: 1px solid var(--border);
-    color: var(--text);
-    font-family: inherit;
-    padding: 0 14px;
-    cursor: default;
+    overflow-y: auto;
+    font-size: 13px;
+    user-select: none;
 }
 
-nav {
-    display: flex;
-    overflow-x: auto;
+.explorer-title {
+    padding: 14px 20px 8px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #bbbbbb;
 }
 
-nav a {
+#explorer summary {
     display: flex;
     align-items: center;
-    padding: 0 20px;
-    color: #969696;
-    background: var(--bg-tab);
-    border-right: 1px solid var(--bg-side);
-    border-top: 2px solid transparent;
-    font-size: 13px;
-    white-space: nowrap;
-}
-
-nav a::before {
-    content: "\{\}";
-    color: var(--yellow);
+    gap: 4px;
+    padding: 3px 8px;
+    list-style: none;
+    cursor: pointer;
     font-size: 11px;
-    margin-right: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #cccccc;
+    background: #2d2d30;
 }
 
-nav a::after {
-    content: ".php";
+#explorer summary::-webkit-details-marker {
+    display: none;
 }
 
-nav a:hover {
-    background: var(--bg);
+#explorer summary::before {
+    content: "\203A";
+    display: inline-block;
+    width: 14px;
+    text-align: center;
+    font-size: 14px;
+    transition: transform 0.15s;
+}
+
+#explorer details[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+#explorer ul {
+    list-style: none;
+    padding: 4px 0;
+}
+
+#explorer li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 8px 3px 26px;
+    color: #cccccc;
+    border-left: 2px solid transparent;
+}
+
+#explorer li a::before {
+    content: "</>";
+    color: #8892bf;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+#explorer li a:hover {
+    background: #2a2d2e;
     color: #fff;
     text-decoration: none;
-    border-top-color: var(--status);
+}
+
+/* active file: follows the clicked section (:target), profil by default */
+body:has(#profil:target) #explorer a[href="#profil"],
+body:has(#project:target) #explorer a[href="#project"],
+body:has(#contact:target) #explorer a[href="#contact"],
+body:not(:has(:target)) #explorer a[href="#profil"] {
+    background: #37373d;
+    color: #fff;
+    border-left-color: var(--status);
+}
+
+main {
+    margin-left: 240px;
 }
 
 /* ---------- Sections = files ---------- */
@@ -132,7 +169,7 @@ section {
     position: relative;
 }
 
-/* closing brace for the "function ...() {" opened by each h2 */
+/* closing brace for the "function ...() {" opened by each h1 */
 section::after {
     content: "}";
     display: block;
@@ -146,18 +183,18 @@ section + section {
     border-top: 1px dashed var(--border);
 }
 
-h2 {
+h1 {
     font-size: 1.6rem;
     color: var(--purple);
     margin-bottom: 24px;
 }
 
-h2::before {
+h1::before {
     content: "class ";
     color: var(--blue);
 }
 
-h2::after {
+h1::after {
     content: " {";
     color: var(--yellow);
 }
@@ -182,6 +219,7 @@ h3::after {
 p {
     color: var(--orange);
     margin-bottom: 12px;
+    text-align: justify;
 }
 
 p::before,
@@ -201,7 +239,7 @@ p::after {
 
 /* ---------- Indentation (with VS Code style guides) ---------- */
 /* level 1: everything inside "class ... {" */
-section > :not(h2) {
+section > :not(h1) {
     margin-left: 10px;
     padding-left: 28px;
     border-left: 1px solid #404040;
@@ -441,12 +479,47 @@ footer li a:hover {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 700px) {
+    html {
+        scroll-padding-top: 56px;
+    }
+
+    /* on small screens the explorer becomes a sticky bar on top */
+    #explorer {
+        position: sticky;
+        top: 0;
+        bottom: auto;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        overflow: visible;
+    }
+
+    .explorer-title,
+    #explorer summary {
+        display: none;
+    }
+
+    #explorer ul {
+        display: flex;
+        overflow-x: auto;
+        padding: 0;
+    }
+
+    #explorer li a {
+        padding: 10px 16px;
+        white-space: nowrap;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
     section {
         padding-left: 16px;
         padding-right: 16px;
     }
 
-    section > :not(h2) {
+    section > :not(h1) {
         margin-left: 4px;
         padding-left: 14px;
     }
