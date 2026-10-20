@@ -6,7 +6,7 @@
             <p>mon parcours...</p>
         </div>
         <div>
-            <img src="" alt="Ma photo de profil">
+            <img src="profil.png" alt="Ma photo de profil">
         </div>
     </div>
 </section>

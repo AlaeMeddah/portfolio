@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ---------- Theme (VS Code Dark+) ---------- */
+:root {
+    --bg: #1e1e1e;
+    --bg-side: #252526;
+    --bg-tab: #2d2d2d;
+    --bg-input: #3c3c3c;
+    --border: #3e3e42;
+    --text: #d4d4d4;
+    --muted: #6a9955;
+    --blue: #569cd6;
+    --light-blue: #9cdcfe;
+    --yellow: #dcdcaa;
+    --orange: #ce9178;
+    --purple: #c586c0;
+    --teal: #4ec9b0;
+    --green: #16825d;
+    --status: #007acc;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 56px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    padding-bottom: 48px;
+}
+
+::selection {
+    background: #264f78;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #424242;
+    border: 3px solid var(--bg);
+    border-radius: 6px;
+}
+
+a {
+    color: var(--light-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Header = editor tabs ---------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: stretch;
+    background: var(--bg-side);
+    border-bottom: 1px solid var(--border);
+    height: 40px;
+}
+
+/* the "..." button looks like the VS Code tab menu; nav stays visible */
+#navButton {
+    background: none;
+    border: none;
+    border-right: 1px solid var(--border);
+    color: var(--text);
+    font-family: inherit;
+    padding: 0 14px;
+    cursor: default;
+}
+
+nav {
+    display: flex;
+    overflow-x: auto;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: #969696;
+    background: var(--bg-tab);
+    border-right: 1px solid var(--bg-side);
+    border-top: 2px solid transparent;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+nav a::before {
+    content: "\{\}";
+    color: var(--yellow);
+    font-size: 11px;
+    margin-right: 8px;
+}
+
+nav a::after {
+    content: ".php";
+}
+
+nav a:hover {
+    background: var(--bg);
+    color: #fff;
+    text-decoration: none;
+    border-top-color: var(--status);
+}
+
+/* ---------- Sections = files ---------- */
+section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 24px 24px;
+    position: relative;
+}
+
+/* closing brace for the "function ...() {" opened by each h2 */
+section::after {
+    content: "}";
+    display: block;
+    margin-top: 32px;
+    color: var(--yellow);
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+section + section {
+    border-top: 1px dashed var(--border);
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: var(--purple);
+    margin-bottom: 24px;
+}
+
+h2::before {
+    content: "class ";
+    color: var(--blue);
+}
+
+h2::after {
+    content: " {";
+    color: var(--yellow);
+}
+
+h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--teal);
+    margin-bottom: 8px;
+}
+
+h3::before {
+    content: "function ";
+    color: var(--blue);
+}
+
+h3::after {
+    content: "() {";
+    color: var(--yellow);
+}
+
+p {
+    color: var(--orange);
+    margin-bottom: 12px;
+}
+
+p::before,
+p::after {
+    content: '"';
+    color: var(--orange);
+}
+
+/* closing brace for each "function ...() {" (h3) */
+.profil > div > div:first-child::after,
+.project-card > div:first-child::after,
+.contact > div::after {
+    content: "}";
+    display: block;
+    color: var(--yellow);
+}
+
+/* ---------- Indentation (with VS Code style guides) ---------- */
+/* level 1: everything inside "class ... {" */
+section > :not(h2) {
+    margin-left: 10px;
+    padding-left: 28px;
+    border-left: 1px solid #404040;
+}
+
+/* level 2: everything inside "function ...() {" */
+.profil > div > div:first-child > :not(h3),
+.project-card > div:first-child > :not(h3),
+.contact > div > :not(h3) {
+    margin-left: 10px;
+    padding-left: 24px;
+    border-left: 1px solid #404040;
+}
+
+/* the form already has a box, so keep its guide on the left only */
+.contact > div > form {
+    border-radius: 0 6px 6px 0;
+}
+
+/* ---------- Profil ---------- */
+.profil > div {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profil > div > div:first-child {
+    flex: 1 1 320px;
+}
+
+.profil img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-side);
+    box-shadow: 0 0 0 4px var(--bg-side), 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Projects = code blocks ---------- */
+.projects-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.project-card {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: var(--bg-side);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--status);
+    border-radius: 6px;
+    padding: 20px 22px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+    transform: translateX(4px);
+    border-left-color: var(--yellow);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.project-card > div:first-child {
+    flex: 1;
+}
+
+.project-card h3 {
+    color: var(--yellow);
+}
+
+.project-card h3::before {
+    content: "function ";
+    color: var(--blue);
+}
+
+.project-card h3::after {
+    content: "() {";
+    color: var(--yellow);
+}
+
+.project-card p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.project-card img {
+    width: 140px;
+    height: 90px;
+    object-fit: cover;
+    background: var(--bg);
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    display: block;
+}
+
+/* ---------- Contact form = config / terminal ---------- */
+.contact h3 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: grid;
+    gap: 6px;
+    max-width: 560px;
+    background: var(--bg-side);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+}
+
+label {
+    color: var(--light-blue);
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+label::before {
+    content: "let ";
+    color: var(--blue);
+}
+
+label::after {
+    content: " =";
+    color: var(--text);
+}
+
+input,
+textarea {
+    width: 100%;
+    background: var(--bg-input);
+    color: var(--orange);
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 9px 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    caret-color: #aeafad;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--status);
+    background: #2a2d2e;
+}
+
+input:required:invalid:not(:focus),
+textarea:required:invalid:not(:focus) {
+    border-color: #f14c4c;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+textarea::placeholder {
+    color: #6a6a6a;
+}
+
+form p {
+    margin: 12px 0 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+form p::before {
+    content: "// ";
+}
+
+form p::after {
+    content: "";
+}
+
+button[type="submit"] {
+    margin-top: 12px;
+    justify-self: start;
+    background: var(--green);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 22px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button[type="submit"]::before {
+    content: "\25B6  ";
+    font-size: 0.7em;
+}
+
+button[type="submit"]:hover {
+    background: #1c9c70;
+}
+
+/* ---------- Footer = status bar ---------- */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: var(--status);
+    color: #fff;
+    font-size: 12px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+}
+
+footer ul {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+}
+
+footer li a {
+    display: block;
+    color: #fff;
+    padding: 0 10px;
+    line-height: 26px;
+}
+
+footer li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+    section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    section > :not(h2) {
+        margin-left: 4px;
+        padding-left: 14px;
+    }
+
+    .profil > div > div:first-child > :not(h3),
+    .project-card > div:first-child > :not(h3),
+    .contact > div > :not(h3) {
+        margin-left: 4px;
+        padding-left: 12px;
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: 140px;
+    }
+}
