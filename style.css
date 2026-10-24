@@ -365,9 +365,8 @@ section > :not(h1) {
     height: 90px;
     object-fit: cover;
     background: var(--bg);
-    border: 1px dashed var(--border);
-    border-radius: 4px;
     display: block;
+    margin: 0 auto;
 }
 
 /* open (full) card: the demo goes below the description */
