@@ -38,5 +38,5 @@
         <h3>So_long - Projet C (École 42)</h3>
         <p>Full description</p>
     </div>
-    <img src="so_long.mp4" alt="demo de so-long">
+    <img src="so_long.gif" alt="demo de so-long">
 </article>
