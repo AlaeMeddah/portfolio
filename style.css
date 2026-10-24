@@ -275,11 +275,7 @@ h4:has(+ ul)::after {
     margin-bottom: 0;
 }
 
-/* standalone paragraph ends the statement, list entries end with a comma */
-.project-card div > label + p::after {
-    content: '";';
-}
-
+/* list entries end with a comma */
 .project-card li p::after {
     content: '",';
 }

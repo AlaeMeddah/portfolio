@@ -37,8 +37,12 @@
     <div>
         <h3>So_long - Projet C (École 42)</h3>
         <h4>Création d'un jeu 2D avec MiniLibX</h4>
-        <label for="so-long-presentation-du-projet">Présentation du projet</label>
-        <p id="so-long-presentation-du-projet">Le projet <em>So_long</em> est une introduction au développement de jeux 2D en langage C. Il combine la rigueur algorithmique, la manipulation de fichiers de configuration de cartes et l'utilisation d'une bibliothèque graphique pour gérer une fenêtre, des textures, des sprites et des événements clavier.</p>
+        <ul>
+            <li>
+                <label for="so-long-presentation-du-projet">Présentation du projet</label>
+                <p id="so-long-presentation-du-projet">Le projet <em>So_long</em> est une introduction au développement de jeux 2D en langage C. Il combine la rigueur algorithmique, la manipulation de fichiers de configuration de cartes et l'utilisation d'une bibliothèque graphique pour gérer une fenêtre, des textures, des sprites et des événements clavier.</p>
+            </li>
+        </ul>
         <h4>Règles du jeu</h4>
         <ul>
             <li>
@@ -63,13 +67,11 @@
             <li>
                 <label for="so-long-parsing-de-cartes-ber">Parsing de cartes (.ber)</label>
                 <p id="so-long-parsing-de-cartes-ber">Analyse, lecture et validation rigoureuse des fichiers de niveaux définissant l'environnement à l'aide de caractères spécifiques : murs (<code>1</code>), espaces vides (<code>0</code>), collectibles (<code>C</code>), position de départ (<code>P</code>) et sortie (<code>E</code>).</p>
-                <pre class="map" aria-label="Exemple de carte .ber">
-                    <code>1111111111111
+                <pre class="map" aria-label="Exemple de carte .ber"><code>1111111111111
 10010000000<span class="map-c">C</span>1
 1000011111001
 1<span class="map-p">P</span>0011<span class="map-e">E</span>000001
-1111111111111</code>
-                </pre>
+1111111111111</code></pre>
             </li>
             <li>
                 <label for="so-long-validation-de-la-carte-flood-fill">Validation de la carte (flood fill)</label>
