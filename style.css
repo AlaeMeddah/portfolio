@@ -229,6 +229,90 @@ h3::after {
     color: var(--yellow);
 }
 
+/* h4 = variable declaration: const Title = [ ... ]; */
+h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--light-blue);
+    margin: 18px 0 8px;
+}
+
+h4::before {
+    content: "const ";
+    color: var(--blue);
+}
+
+h4::after {
+    content: " =";
+    color: var(--text);
+}
+
+/* h4 followed by a list: the list is an array */
+h4:has(+ ul)::after {
+    content: " = [";
+    color: var(--yellow);
+}
+
+.project-card ul {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+.project-card h4 + ul::after {
+    content: "];";
+    display: block;
+    color: var(--yellow);
+    margin-top: 4px;
+}
+
+/* h4 followed by a paragraph: the paragraph is a string */
+h4 + p::after {
+    content: '";';
+    color: var(--orange);
+}
+
+/* each list item = one string entry of the array */
+.project-card li {
+    color: var(--orange);
+    text-align: justify;
+    margin-bottom: 6px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+
+.project-card li::before,
+.project-card li::after {
+    color: var(--orange);
+}
+
+.project-card li::before {
+    content: '"';
+}
+
+.project-card li::after {
+    content: '",';
+}
+
+.project-card li:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.project-card li strong {
+    color: var(--yellow);
+    font-weight: 500;
+}
+
+/* inline code = highlighted token */
+.project-card code {
+    background: var(--bg-input);
+    color: var(--teal);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 0.85em;
+}
+
 p {
     color: var(--orange);
     margin-bottom: 12px;
