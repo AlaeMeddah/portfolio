@@ -265,42 +265,35 @@ h4:has(+ ul)::after {
     margin-top: 4px;
 }
 
-/* h4 followed by a paragraph: the paragraph is a string */
-h4 + p::after {
-    content: '";';
-    color: var(--orange);
+/* label + paragraph = let name = "text"; */
+.project-card label {
+    display: block;
+    margin-top: 0;
 }
 
-/* each list item = one string entry of the array */
+.project-card li p {
+    margin-bottom: 0;
+}
+
+/* standalone paragraph ends the statement, list entries end with a comma */
+.project-card div > label + p::after {
+    content: '";';
+}
+
+.project-card li p::after {
+    content: '",';
+}
+
+/* each list item = one entry of the array */
 .project-card li {
-    color: var(--orange);
-    text-align: justify;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     padding: 2px 8px;
     border-radius: 3px;
     transition: background 0.2s;
 }
 
-.project-card li::before,
-.project-card li::after {
-    color: var(--orange);
-}
-
-.project-card li::before {
-    content: '"';
-}
-
-.project-card li::after {
-    content: '",';
-}
-
 .project-card li:hover {
     background: rgba(255, 255, 255, 0.04);
-}
-
-.project-card li strong {
-    color: var(--yellow);
-    font-weight: 500;
 }
 
 /* inline code = highlighted token */
