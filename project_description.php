@@ -63,6 +63,18 @@
             <li>
                 <label for="so-long-parsing-de-cartes-ber">Parsing de cartes (.ber)</label>
                 <p id="so-long-parsing-de-cartes-ber">Analyse, lecture et validation rigoureuse des fichiers de niveaux définissant l'environnement à l'aide de caractères spécifiques : murs (<code>1</code>), espaces vides (<code>0</code>), collectibles (<code>C</code>), position de départ (<code>P</code>) et sortie (<code>E</code>).</p>
+                <pre class="map" aria-label="Exemple de carte .ber">
+                    <code>1111111111111
+                        10010000000<span class="map-c">C</span>1
+                        1000011111001
+                        1<span class="map-p">P</span>0011<span class="map-e">E</span>000001
+                        1111111111111
+                    </code>
+                </pre>
+            </li>
+            <li>
+                <label for="so-long-validation-de-la-carte-flood-fill">Validation de la carte (flood fill)</label>
+                <p id="so-long-validation-de-la-carte-flood-fill">La validité de la carte est vérifiée à l'aide d'un algorithme de <em>flood fill</em> lancé depuis la position de départ du joueur : si tous les collectibles et la sortie ne sont pas atteignables, la carte est rejetée avec un message d'erreur explicite.</p>
             </li>
             <li>
                 <label for="so-long-moteur-graphique-textures">Moteur graphique & Textures</label>
@@ -81,7 +93,7 @@
             </li>
             <li>
                 <label for="so-long-version-bonus">Version Bonus</label>
-                <p id="so-long-version-bonus">Implémentation d'animations de sprites, de pièges causant la défaite en cas de contact, et affichage direct du compteur de pas à l'écran.</p>
+                <p id="so-long-version-bonus">Implémentation d'animations de sprites, de pièges (<code>T</code>) causant la défaite en cas de contact, et affichage direct du compteur de pas à l'écran.</p>
             </li>
         </ul>
     </div>
