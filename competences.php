@@ -1,0 +1,36 @@
+<section id="competences" class="competences">
+    <h2>competences</h2>
+    <dl>
+        <div>
+            <dt>langages</dt>
+            <dd>
+                <ul>
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>JavaScript</li>
+                    <li>PHP</li>
+                    <li>SQL</li>
+                </ul>
+            </dd>
+        </div>
+        <div>
+            <dt>frameworks</dt>
+            <dd>
+                <ul>
+                    <li>React</li>
+                    <li>Django</li>
+                </ul>
+            </dd>
+        </div>
+        <div>
+            <dt>outils</dt>
+            <dd>
+                <ul>
+                    <li>Git</li>
+                    <li>Linux</li>
+                    <li>Bash</li>
+                </ul>
+            </dd>
+        </div>
+    </dl>
+</section>

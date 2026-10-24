@@ -199,6 +199,19 @@ h1::after {
     color: var(--yellow);
 }
 
+/* h2 = code comment: // text */
+h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+h2::before {
+    content: "// ";
+}
+
 h3 {
     font-size: 1.05rem;
     font-weight: 500;
@@ -229,7 +242,7 @@ p::after {
 }
 
 /* closing brace for each "function ...() {" (h3) */
-.profil > div > div:first-child::after,
+#profil-text::after,
 .project-card > div:first-child::after,
 .contact > div::after {
     content: "}";
@@ -246,7 +259,7 @@ section > :not(h1) {
 }
 
 /* level 2: everything inside "function ...() {" */
-.profil > div > div:first-child > :not(h3),
+#profil-text > :not(h3),
 .project-card > div:first-child > :not(h3),
 .contact > div > :not(h3) {
     margin-left: 10px;
@@ -260,15 +273,19 @@ section > :not(h1) {
 }
 
 /* ---------- Profil ---------- */
-.profil > div {
+#profil-content {
     display: flex;
     gap: 32px;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.profil > div > div:first-child {
+#profil-text {
     flex: 1 1 320px;
+}
+
+#profil-photo {
+    flex: 0 0 auto;
 }
 
 .profil img {
@@ -298,6 +315,20 @@ section > :not(h1) {
     border-radius: 6px;
     padding: 20px 22px;
     transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.project-card {
+    cursor: pointer;
+}
+
+/* display:flex above would otherwise override the hidden attribute */
+.project-card[hidden] {
+    display: none;
+}
+
+.project-card:focus-visible {
+    outline: 1px solid var(--status);
+    outline-offset: 2px;
 }
 
 .project-card:hover {
@@ -337,6 +368,24 @@ section > :not(h1) {
     border: 1px dashed var(--border);
     border-radius: 4px;
     display: block;
+}
+
+/* open (full) card: the demo goes below the description */
+.project-card[id$="_full"] {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.project-card[id$="_full"] > div:first-child {
+    flex: none;
+}
+
+.project-card[id$="_full"] img {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
 }
 
 /* ---------- Contact form = config / terminal ---------- */
@@ -524,7 +573,7 @@ footer li a:hover {
         padding-left: 14px;
     }
 
-    .profil > div > div:first-child > :not(h3),
+    #profil-text > :not(h3),
     .project-card > div:first-child > :not(h3),
     .contact > div > :not(h3) {
         margin-left: 4px;
