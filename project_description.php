@@ -65,11 +65,10 @@
                 <p id="so-long-parsing-de-cartes-ber">Analyse, lecture et validation rigoureuse des fichiers de niveaux définissant l'environnement à l'aide de caractères spécifiques : murs (<code>1</code>), espaces vides (<code>0</code>), collectibles (<code>C</code>), position de départ (<code>P</code>) et sortie (<code>E</code>).</p>
                 <pre class="map" aria-label="Exemple de carte .ber">
                     <code>1111111111111
-                        10010000000<span class="map-c">C</span>1
-                        1000011111001
-                        1<span class="map-p">P</span>0011<span class="map-e">E</span>000001
-                        1111111111111
-                    </code>
+10010000000<span class="map-c">C</span>1
+1000011111001
+1<span class="map-p">P</span>0011<span class="map-e">E</span>000001
+1111111111111</code>
                 </pre>
             </li>
             <li>
