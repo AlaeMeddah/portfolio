@@ -39,6 +39,6 @@
         </article>
     </div>
     <div id="project-details" hidden>
-        <?php include 'project_description.php'; ?>
+        <?php include 'section/project_description.php'; ?>
     </div>
 </section>

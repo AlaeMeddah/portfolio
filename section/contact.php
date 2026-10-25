@@ -2,7 +2,7 @@
     <h1>contact</h1>
     <div>
         <h3>envoyez moi un message</h3>
-        <form id="contact_form" action="send_mail.php" method="post">
+        <form id="contact_form" action="action/send_mail.php" method="post">
             <label for="name">Name *</label>
             <input type="text" id="name" name="name" required>
             <label for="fname">First name *</label>

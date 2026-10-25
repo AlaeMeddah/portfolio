@@ -615,14 +615,16 @@ footer {
 }
 
 footer > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
 footer ul {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    gap: 4px;
     list-style: none;
 }
 

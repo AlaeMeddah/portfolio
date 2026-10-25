@@ -59,7 +59,7 @@
             </li>
         </ul>
     </div>
-    <img src="minishell.gif" alt="demo de minishell">
+    <img src="img/minishell.gif" alt="demo de minishell">
 </article>
 <article class="project-card" id="portfolio_full">
     <div>
@@ -304,7 +304,7 @@
             </li>
         </ul>
     </div>
-    <img src="philosophers.gif" alt="demo de philosophers">
+    <img src="img/philosophers.gif" alt="demo de philosophers">
 </article>
 <article class="project-card" id="so-long_full">
     <div>
@@ -371,5 +371,5 @@
             </li>
         </ul>
     </div>
-    <img src="so_long.gif" alt="demo de so-long">
+    <img src="img/so_long.gif" alt="demo de so-long">
 </article>
