@@ -695,3 +695,25 @@ footer li a:hover {
         height: 140px;
     }
 }
+
+/* ---------- Open animation for project cards ---------- */
+.project-card[id$="_full"] {
+    animation: card-open 0.4s ease-out;
+}
+
+@keyframes card-open {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card[id$="_full"] {
+        animation: none;
+    }
+}

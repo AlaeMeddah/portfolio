@@ -18,6 +18,8 @@ function openProject(short) {
     projectsGrid.querySelectorAll("[id$='_full']").forEach(closeProject);
     short.after(full);
     short.hidden = true;
+    // smoothly bring the opened card title to the top of the screen
+    full.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function handleProjectClick(event) {

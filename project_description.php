@@ -91,7 +91,7 @@
             </li>
             <li>
                 <label for="portfolio-contact">Contact</label>
-                <p id="portfolio-contact">Un formulaire de contact avec champs obligatoires, qui envoie directement un e-mail à ma boîte de réception grâce à <code>PHPMailer</code>.</p>
+                <p id="portfolio-contact">Un formulaire de contact avec champs obligatoires, qui envoie directement un e-mail à ma boîte de réception grâce à l'API <code>Resend</code> appelée en PHP.</p>
             </li>
             <li>
                 <label for="portfolio-publication">Publication automatisée</label>
