@@ -8,49 +8,122 @@
 <article class="project-card" id="portfolio_full">
     <div>
         <h3>Portfolio - Projet Web (Epitech)</h3>
-        <h4>Création d'un portfolio en PHP</h4>
+        <h4>Contexte et objectif</h4>
         <ul>
             <li>
-                <label for="portfolio-presentation-du-projet">Présentation du projet</label>
-                <p id="portfolio-presentation-du-projet">Le projet <em>Portfolio</em> est un site personnel développé en PHP qui présente mon profil, mes projets et un moyen de me contacter. Son thème imite l'éditeur VS Code Dark+ : les titres s'écrivent comme du code (<code>class</code>, <code>function</code>, <code>const</code>, <code>let</code>) pour que le site reflète le métier de développeur.</p>
+                <label for="portfolio-contexte">Contexte</label>
+                <p id="portfolio-contexte">Le projet <em>Portfolio</em> consiste à créer un site vitrine en ligne qui présente mes projets, mes compétences et ma progression au fil de l'année, pour préparer ma recherche d'opportunités.</p>
+            </li>
+            <li>
+                <label for="portfolio-objectif">Objectif</label>
+                <p id="portfolio-objectif">Réaliser un portfolio personnalisé, à mon image : son thème imite l'éditeur VS Code Dark+ et les titres s'écrivent comme du code (<code>class</code>, <code>function</code>, <code>const</code>, <code>let</code>) pour refléter le métier de développeur.</p>
             </li>
         </ul>
         <h4>Fonctionnalités principales</h4>
         <ul>
             <li>
-                <label for="portfolio-structure-modulaire">Structure modulaire</label>
-                <p id="portfolio-structure-modulaire">La page <code>index.php</code> assemble les sections profil, projets et contact à l'aide d'inclusions PHP, ce qui garde chaque partie du site dans son propre fichier.</p>
+                <label for="portfolio-navigation">Navigation claire</label>
+                <p id="portfolio-navigation">Un menu en forme d'explorateur de fichiers permet d'atteindre chaque section, avec le fichier actif mis en évidence pour savoir à tout moment où l'on se trouve, et une barre d'état en bas de page reprend les liens principaux.</p>
             </li>
             <li>
-                <label for="portfolio-navigation">Navigation façon éditeur</label>
-                <p id="portfolio-navigation">Un explorateur de fichiers fixe sur le côté permet de naviguer entre les sections, avec le fichier actif mis en évidence, et une barre d'état en bas de page reprend les liens principaux.</p>
+                <label for="portfolio-profil">Profil</label>
+                <p id="portfolio-profil">Une section de présentation avec ma photo et un texte qui explique mon parcours et ce que je recherche.</p>
             </li>
             <li>
-                <label for="portfolio-projets">Présentation des projets</label>
-                <p id="portfolio-projets">Chaque projet est affiché dans une carte qui s'ouvre sur sa description détaillée, accompagnée d'une démonstration en GIF.</p>
+                <label for="portfolio-projets">Projets réalisés</label>
+                <p id="portfolio-projets">Chaque projet est présenté dans une carte qui s'ouvre sur sa description détaillée : le contexte et l'objectif, les fonctionnalités, les compétences et technologies utilisées, avec une démonstration en GIF.</p>
             </li>
             <li>
-                <label for="portfolio-contact">Formulaire de contact</label>
-                <p id="portfolio-contact">Le formulaire vérifie les champs obligatoires, puis envoie directement un e-mail à ma boîte de réception grâce à <code>PHPMailer</code> lors de l'envoi du message. Le site est déployé sur Render depuis mon dépôt GitHub.</p>
+                <label for="portfolio-contact">Contact</label>
+                <p id="portfolio-contact">Un formulaire de contact avec champs obligatoires, qui envoie directement un e-mail à ma boîte de réception grâce à <code>PHPMailer</code>.</p>
+            </li>
+            <li>
+                <label for="portfolio-publication">Publication automatisée</label>
+                <p id="portfolio-publication">Le site est hébergé en ligne sur <code>Render</code> et chaque modification poussée sur mon dépôt <code>GitHub</code> est redéployée automatiquement, sans étape manuelle.</p>
             </li>
         </ul>
-        <h4>Implémentation technique & Notions clés</h4>
+        <h4>Compétences et technologies</h4>
         <ul>
             <li>
-                <label for="portfolio-css">Design en CSS</label>
-                <p id="portfolio-css">Thème défini avec des variables CSS, police <code>JetBrains Mono</code>, titres générés avec les pseudo-éléments <code>::before</code> et <code>::after</code> et guides d'indentation comme dans VS Code.</p>
+                <label for="portfolio-front">Front-end esthétique</label>
+                <p id="portfolio-front">Thème défini avec des variables CSS, police <code>JetBrains Mono</code>, titres générés avec les pseudo-éléments <code>::before</code> et <code>::after</code> et guides d'indentation comme dans VS Code.</p>
             </li>
             <li>
-                <label for="portfolio-responsive">Responsive</label>
-                <p id="portfolio-responsive">Sur petit écran, l'explorateur devient une barre de navigation collée en haut de la page et la mise en page s'adapte à la largeur disponible.</p>
+                <label for="portfolio-ux">Ergonomie et responsive</label>
+                <p id="portfolio-ux">Mise en page adaptée à tous les écrans : sous 700 px, l'explorateur devient une barre de navigation collée en haut de la page.</p>
+            </li>
+            <li>
+                <label for="portfolio-accessibilite">Accessibilité</label>
+                <p id="portfolio-accessibilite">Texte alternatif sur les images et hiérarchie de titres (<code>h1</code> à <code>h4</code>) qui suit la structure du contenu.</p>
+            </li>
+            <li>
+                <label for="portfolio-php">Structure en PHP</label>
+                <p id="portfolio-php">La page <code>index.php</code> assemble les sections profil, projets et contact avec des inclusions PHP, ce qui garde chaque partie du site dans son propre fichier.</p>
             </li>
         </ul>
     </div>
+    <img src="portfolio.gif" alt="demo de portfolio">
 </article>
 <article class="project-card" id="job-board_full">
     <div>
         <h3>Job Board - Projet Web Full-Stack (Epitech)</h3>
-        <p>Full description</p>
+        <h4>Contexte et objectif</h4>
+        <ul>
+            <li>
+                <label for="jobboard-contexte">Contexte</label>
+                <p id="jobboard-contexte">Les offres d'emploi et de stage sont dispersées sur de nombreuses plateformes, avec des annonces similaires ou en double qui rendent la recherche longue. Le projet <em>Job Board</em> répond à ce problème en regroupant les annonces au même endroit.</p>
+            </li>
+            <li>
+                <label for="jobboard-objectif">Objectif</label>
+                <p id="jobboard-objectif">Construire une solution complète : une base de données SQL qui stocke les annonces, une API <code>Django</code> (back end) et un front end en JavaScript avec <code>React</code> qui affiche le job board, ainsi qu'une page d'administration.</p>
+            </li>
+        </ul>
+        <h4>Fonctionnalités principales</h4>
+        <ul>
+            <li>
+                <label for="jobboard-bdd">Base de données</label>
+                <p id="jobboard-bdd">Une base <code>SQLite</code> avec une table pour les annonces, une pour les entreprises, une pour les personnes (candidats) et une pour les candidatures.</p>
+            </li>
+            <li>
+                <label for="jobboard-annonces">Job board</label>
+                <p id="jobboard-annonces">Chaque annonce affiche un titre, une description courte et les boutons « Show detail » et « Apply ». Le détail complet s'affiche sans recharger la page et sans popup, et une barre de recherche avec pagination aide à trouver les offres.</p>
+            </li>
+            <li>
+                <label for="jobboard-candidature">Candidature</label>
+                <p id="jobboard-candidature">Le bouton « Apply » ouvre un formulaire (nom, e-mail, téléphone, ville, situation) avec un message pour l'entreprise, et chaque candidature est enregistrée dans la base. Un utilisateur connecté n'a pas à saisir à nouveau ses informations, et un visiteur peut postuler sans compte puis en créer un.</p>
+            </li>
+            <li>
+                <label for="jobboard-authentification">Authentification</label>
+                <p id="jobboard-authentification">Une page de connexion et une page d'inscription pour les candidats et les entreprises, avec création, modification et suppression du compte.</p>
+            </li>
+            <li>
+                <label for="jobboard-entreprise">Espace entreprise</label>
+                <p id="jobboard-entreprise">Une entreprise connectée peut créer, modifier et supprimer ses annonces, et consulter les candidats de chacune avec leurs informations et leur message.</p>
+            </li>
+            <li>
+                <label for="jobboard-administration">Administration</label>
+                <p id="jobboard-administration">Une page accessible uniquement aux administrateurs permet de lister, rechercher, créer, modifier et supprimer les enregistrements de chaque table.</p>
+            </li>
+        </ul>
+        <h4>Compétences et technologies</h4>
+        <ul>
+            <li>
+                <label for="jobboard-api">API et opérations CRUD</label>
+                <p id="jobboard-api">Toutes les données dynamiques du front end passent par l'API, qui expose les opérations CRUD (Create, Read, Update, Delete) avec les verbes HTTP <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>PATCH</code> et <code>DELETE</code>.</p>
+            </li>
+            <li>
+                <label for="jobboard-react">Application React</label>
+                <p id="jobboard-react">Interface découpée en composants <code>JSX</code> avec <code>React Router</code> pour naviguer sans recharger, et des hooks <code>useState</code> et <code>useEffect</code> pour gérer l'état et les chargements.</p>
+            </li>
+            <li>
+                <label for="jobboard-fetch">Requêtes asynchrones</label>
+                <p id="jobboard-fetch">Appels <code>fetch</code> avec <code>try/catch/finally</code> et lecture sécurisée des réponses JSON pour afficher les messages d'erreur du serveur.</p>
+            </li>
+            <li>
+                <label for="jobboard-securite">Authentification et droits d'accès</label>
+                <p id="jobboard-securite">Authentification par token avec l'en-tête <code>Authorization</code> : l'API renvoie une erreur 403 aux utilisateurs non autorisés, et la page d'administration est réservée aux administrateurs.</p>
+            </li>
+        </ul>
     </div>
     <img src="job-board.gif" alt="demo de job-board">
 </article>
