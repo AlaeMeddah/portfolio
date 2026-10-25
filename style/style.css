@@ -720,29 +720,60 @@ footer li a img {
     filter: brightness(0) invert(1);
 }
 
+/* ---------- Theme button (fixed, top right) ---------- */
 #theme_toggle {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0 10px;
-    height: 26px;
-    background: none;
-    border: none;
-    color: #fff;
+    position: fixed;
+    top: 12px;
+    right: 20px;
+    z-index: 20;
+    padding: 6px 12px;
+    background: var(--bg-side);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
     font-family: inherit;
-    font-size: inherit;
-    line-height: 26px;
-    white-space: nowrap;
+    font-size: 12px;
+    line-height: 1.4;
     cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
 }
 
 #theme_toggle:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--hover-bg);
+    border-color: var(--status);
 }
 
 #theme_toggle:focus-visible {
-    outline: 1px solid #fff;
-    outline-offset: -2px;
+    outline: 1px solid var(--status);
+    outline-offset: 2px;
+}
+
+#theme_toggle svg {
+    width: 14px;
+    height: 14px;
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* dark theme: sun + "light mode" / light theme: moon + "dark mode" */
+#theme_toggle .to-light,
+#theme_toggle .to-dark {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#theme_toggle .to-dark,
+:root[data-theme="light"] #theme_toggle .to-light {
+    display: none;
+}
+
+:root[data-theme="light"] #theme_toggle .to-dark {
+    display: flex;
 }
 
 /* ---------- Responsive ---------- */
@@ -774,7 +805,7 @@ footer li a img {
     }
 
     #explorer li a {
-        padding: 10px 16px;
+        padding: 10px 12px;
         white-space: nowrap;
     }
 
@@ -810,6 +841,26 @@ footer li a img {
 
     footer ul {
         overflow-x: auto;
+    }
+
+    /* the button sits on the right of the top bar: icon only, with room for it */
+    #theme_toggle {
+        top: 6px;
+        right: 8px;
+        padding: 6px 8px;
+    }
+
+    #theme_toggle .theme-label {
+        display: none;
+    }
+
+    #explorer ul {
+        padding-right: 52px;
+    }
+
+    /* drop the </> icons so the three tabs fit next to the button */
+    #explorer li a::before {
+        display: none;
     }
 }
 

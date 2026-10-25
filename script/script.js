@@ -115,14 +115,10 @@ function applyTheme(theme) {
     if (!themeToggle) {
         return;
     }
-    // the button shows the theme you will switch TO
-    if (theme === "light") {
-        themeToggle.textContent = "\u263E\uFE0E dark";
-        themeToggle.setAttribute("aria-label", "Switch to dark mode");
-    } else {
-        themeToggle.textContent = "\u2600\uFE0E light";
-        themeToggle.setAttribute("aria-label", "Switch to light mode");
-    }
+    themeToggle.setAttribute(
+        "aria-label",
+        theme === "light" ? "Switch to dark mode" : "Switch to light mode"
+    );
 }
 
 function handleThemeToggle(event) {
