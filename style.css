@@ -614,22 +614,42 @@ footer {
     padding: 0 12px;
 }
 
+footer > div {
+    width: 100%;
+}
+
 footer ul {
     display: flex;
-    gap: 6px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     list-style: none;
 }
 
-footer li a {
+footer li a,
+footer li span {
     display: block;
     color: #fff;
     padding: 0 10px;
     line-height: 26px;
+    white-space: nowrap;
 }
 
 footer li a:hover {
     background: rgba(255, 255, 255, 0.2);
     text-decoration: none;
+}
+
+footer li a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+footer li a img {
+    height: 14px;
+    width: auto;
+    filter: brightness(0) invert(1);
 }
 
 /* ---------- Responsive ---------- */
@@ -693,6 +713,10 @@ footer li a:hover {
     .project-card img {
         width: 100%;
         height: 140px;
+    }
+
+    footer ul {
+        overflow-x: auto;
     }
 }
 
