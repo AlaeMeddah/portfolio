@@ -190,8 +190,68 @@
 </article>
 <article class="project-card" id="philosophers_full">
     <div>
-        <h3>Philosophers - Projet C</h3>
-        <p>Full description</p>
+        <h3>Philosophers - Projet C (École 42)</h3>
+        <h4>Contexte et objectif</h4>
+        <ul>
+            <li>
+                <label for="philosophers-contexte">Contexte</label>
+                <p id="philosophers-contexte">Le projet <em>Philosophers</em> (« I've never thought philosophy would be so deadly ») met en scène des philosophes assis autour d'une table ronde, qui mangent, dorment ou pensent. Il y a une fourchette entre chaque philosophe et il en faut deux pour manger. La simulation s'arrête quand un philosophe meurt de faim.</p>
+            </li>
+            <li>
+                <label for="philosophers-objectif">Objectif</label>
+                <p id="philosophers-objectif">Découvrir les bases des threads et des mutex : faire en sorte qu'aucun philosophe ne meure de faim, sans que deux d'entre eux utilisent la même fourchette en même temps.</p>
+            </li>
+        </ul>
+        <h4>Fonctionnalités principales</h4>
+        <ul>
+            <li>
+                <label for="philosophers-parametres">Paramètres de la simulation</label>
+                <p id="philosophers-parametres">Le programme prend le nombre de philosophes, <code>time_to_die</code>, <code>time_to_eat</code>, <code>time_to_sleep</code> et un nombre de repas facultatif. Le nombre et le format des arguments sont vérifiés avant de lancer la simulation.</p>
+            </li>
+            <li>
+                <label for="philosophers-cycle">Cycle des philosophes</label>
+                <p id="philosophers-cycle">Chaque philosophe est un thread numéroté de 1 à N, qui enchaîne manger, dormir et penser. La simulation s'arrête à la mort d'un philosophe, ou quand tous ont mangé le nombre de repas demandé.</p>
+            </li>
+            <li>
+                <label for="philosophers-fourchettes">Fourchettes protégées</label>
+                <p id="philosophers-fourchettes">Chaque fourchette est protégée par un mutex, ce qui empêche deux philosophes de la prendre en même temps.</p>
+            </li>
+            <li>
+                <label for="philosophers-affichage">Affichage horodaté</label>
+                <p id="philosophers-affichage">Chaque changement d'état est affiché avec son horodatage en millisecondes, et un mutex évite que les messages de plusieurs philosophes se mélangent.</p>
+            </li>
+            <li>
+                <label for="philosophers-moniteur">Thread moniteur</label>
+                <p id="philosophers-moniteur">Un thread dédié vérifie en continu qu'aucun philosophe n'a dépassé <code>time_to_die</code> depuis son dernier repas, puis arrête la simulation et affiche la mort.</p>
+            </li>
+            <li>
+                <label for="philosophers-seul">Cas d'un seul philosophe</label>
+                <p id="philosophers-seul">Avec une seule fourchette, le philosophe ne peut pas manger et finit par mourir au bout de <code>time_to_die</code>.</p>
+            </li>
+        </ul>
+        <h4>Compétences et technologies</h4>
+        <ul>
+            <li>
+                <label for="philosophers-threads">Threads</label>
+                <p id="philosophers-threads">Création et attente des threads avec <code>pthread_create</code> et <code>pthread_join</code> : un thread par philosophe, plus le moniteur.</p>
+            </li>
+            <li>
+                <label for="philosophers-mutex">Mutex et data races</label>
+                <p id="philosophers-mutex">Un mutex par fourchette et un mutex partagé qui protège l'affichage et les données communes (fin de simulation, dernier repas), pour éviter les data races. Le projet est compilé avec <code>-fsanitize=thread</code> pour les détecter.</p>
+            </li>
+            <li>
+                <label for="philosophers-deadlock">Prévention des deadlocks</label>
+                <p id="philosophers-deadlock">Chaque philosophe prend d'abord la fourchette de plus petit numéro, puis l'autre : cet ordre fixe empêche tous les philosophes de se bloquer en attendant la fourchette de leur voisin.</p>
+            </li>
+            <li>
+                <label for="philosophers-temps">Gestion du temps</label>
+                <p id="philosophers-temps">Mesure du temps en millisecondes avec <code>gettimeofday</code> et attentes découpées en petits pas de <code>usleep</code> pour rester précis.</p>
+            </li>
+            <li>
+                <label for="philosophers-memoire">Gestion de la mémoire</label>
+                <p id="philosophers-memoire">Mutex détruits et mémoire libérée à la fin de la simulation.</p>
+            </li>
+        </ul>
     </div>
     <img src="philosophers.gif" alt="demo de philosophers">
 </article>
