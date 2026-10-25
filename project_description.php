@@ -184,9 +184,60 @@
 <article class="project-card" id="irc-chat_full">
     <div>
         <h3>IRC-Style Chat Server - Projet C++ (Personnel)</h3>
-        <p>Full description</p>
+        <h4>Contexte et objectif</h4>
+        <ul>
+            <li>
+                <label for="irc-contexte">Contexte</label>
+                <p id="irc-contexte">Projet personnel inspiré d'<em>IRC</em> : un serveur de chat multi-clients écrit en C++ avec des sockets TCP, auquel plusieurs utilisateurs peuvent se connecter en même temps, y compris depuis des machines différentes du réseau.</p>
+            </li>
+            <li>
+                <label for="irc-objectif">Objectif</label>
+                <p id="irc-objectif">Comprendre comment fonctionne la communication réseau et comment un serveur gère plusieurs utilisateurs simultanément, sans créer un thread par client.</p>
+            </li>
+        </ul>
+        <h4>Fonctionnalités principales</h4>
+        <ul>
+            <li>
+                <label for="irc-connexions">Connexions multiples</label>
+                <p id="irc-connexions">Le serveur écoute sur le port donné en argument et accepte plusieurs clients à la fois, en détectant les nouvelles connexions comme les déconnexions.</p>
+            </li>
+            <li>
+                <label for="irc-pseudo">Pseudos uniques</label>
+                <p id="irc-pseudo">Chaque utilisateur choisit un pseudo avec la commande <code>/NICK</code> avant de pouvoir écrire. Un pseudo déjà pris est refusé et l'arrivée de chaque utilisateur est annoncée aux autres.</p>
+            </li>
+            <li>
+                <label for="irc-diffusion">Diffusion des messages</label>
+                <p id="irc-diffusion">Un message envoyé par un utilisateur est diffusé en temps réel à tous les autres, précédé de son pseudo, et le départ d'un utilisateur est annoncé.</p>
+            </li>
+            <li>
+                <label for="irc-commandes">Commandes</label>
+                <p id="irc-commandes"><code>/WHISPER</code> envoie un message privé à un utilisateur, <code>/LIST</code> affiche les utilisateurs connectés, et toute commande inconnue renvoie un message d'erreur explicite.</p>
+            </li>
+        </ul>
+        <h4>Compétences et technologies</h4>
+        <ul>
+            <li>
+                <label for="irc-sockets">Sockets TCP</label>
+                <p id="irc-sockets">Création du serveur avec <code>socket</code>, <code>setsockopt</code>, <code>bind</code>, <code>listen</code> et <code>accept</code>, et validation du port passé en argument.</p>
+            </li>
+            <li>
+                <label for="irc-poll">Architecture événementielle</label>
+                <p id="irc-poll">Sockets non bloquantes avec <code>fcntl</code> et boucle d'événements avec <code>poll</code> : un seul thread surveille toutes les connexions et réagit à chaque événement (nouveau client, message reçu, déconnexion).</p>
+            </li>
+            <li>
+                <label for="irc-buffer">Gestion des messages réseau</label>
+                <p id="irc-buffer">Les données reçues peuvent arriver coupées ou regroupées : chaque client a son propre tampon, et un message n'est traité qu'une fois la ligne complète reçue.</p>
+            </li>
+            <li>
+                <label for="irc-cpp">Programmation en C++</label>
+                <p id="irc-cpp">Classes <code>Server</code>, <code>Client</code> et <code>Chatroom</code>, conteneurs <code>std::map</code> et <code>std::vector</code> pour les clients et les descripteurs surveillés, et gestion des erreurs avec des exceptions.</p>
+            </li>
+            <li>
+                <label for="irc-tests">Tests</label>
+                <p id="irc-tests">Serveur testé avec des clients simples comme <code>nc</code> (Netcat) et <code>telnet</code>, en ouvrant plusieurs connexions en parallèle.</p>
+            </li>
+        </ul>
     </div>
-    <img src="irc-chat.gif" alt="demo de irc-chat">
 </article>
 <article class="project-card" id="philosophers_full">
     <div>
