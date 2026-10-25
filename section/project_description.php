@@ -58,6 +58,7 @@
                 <p id="minishell-compilation">Projet écrit en C et compilé avec un <code>Makefile</code> : <code>make</code> puis <code>./minishell</code> pour lancer le shell.</p>
             </li>
         </ul>
+        <p class="source-code">source code: <a href="https://github.com/AlaeMeddah/42_minishell" target="_blank" rel="noopener noreferrer">github.com/AlaeMeddah/minishell</a></p>
     </div>
     <img src="img/minishell.gif" alt="demo de minishell">
 </article>
@@ -117,6 +118,7 @@
                 <p id="portfolio-php">La page <code>index.php</code> assemble les sections profil, projets et contact avec des inclusions PHP, ce qui garde chaque partie du site dans son propre fichier.</p>
             </li>
         </ul>
+        <p class="source-code">source code: <a href="https://github.com/AlaeMeddah/portfolio" target="_blank" rel="noopener noreferrer">github.com/AlaeMeddah/portfolio</a></p>
     </div>
 </article>
 <article class="project-card" id="job-board_full">
@@ -179,6 +181,7 @@
                 <p id="jobboard-securite">Authentification par token avec l'en-tête <code>Authorization</code> : l'API renvoie une erreur 403 aux utilisateurs non autorisés, et la page d'administration est réservée aux administrateurs.</p>
             </li>
         </ul>
+        <p class="source-code">source code: <a href="https://github.com/EpitechMscProPromo2029/T-WEB-501-PAR-5-1-job_board-8" target="_blank" rel="noopener noreferrer">github.com/AlaeMeddah/job-board</a></p>
     </div>
 </article>
 <article class="project-card" id="irc-chat_full">
@@ -237,6 +240,7 @@
                 <p id="irc-tests">Serveur testé avec des clients simples comme <code>nc</code> (Netcat) et <code>telnet</code>, en ouvrant plusieurs connexions en parallèle.</p>
             </li>
         </ul>
+        <p class="source-code">source code: <a href="https://github.com/AlaeMeddah/myIRCserver" target="_blank" rel="noopener noreferrer">github.com/AlaeMeddah/irc-chat</a></p>
     </div>
 </article>
 <article class="project-card" id="philosophers_full">
@@ -303,6 +307,7 @@
                 <p id="philosophers-memoire">Mutex détruits et mémoire libérée à la fin de la simulation.</p>
             </li>
         </ul>
+        <p class="source-code">source code: <a href="https://github.com/AlaeMeddah/42_philosopher" target="_blank" rel="noopener noreferrer">github.com/AlaeMeddah/philosophers</a></p>
     </div>
     <img src="img/philosophers.gif" alt="demo de philosophers">
 </article>
@@ -370,6 +375,7 @@
                 <p id="so-long-version-bonus">Implémentation d'animations de sprites, de pièges (<code>T</code>) causant la défaite en cas de contact, et affichage direct du compteur de pas à l'écran.</p>
             </li>
         </ul>
+        <p class="source-code">source code: <a href="https://github.com/AlaeMeddah/42_so_long" target="_blank" rel="noopener noreferrer">github.com/AlaeMeddah/so_long</a></p>
     </div>
     <img src="img/so_long.gif" alt="demo de so-long">
 </article>

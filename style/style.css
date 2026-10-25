@@ -17,6 +17,56 @@
     --teal: #4ec9b0;
     --green: #16825d;
     --status: #007acc;
+
+    /* colors that used to be hard-coded */
+    --selection: #264f78;
+    --scroll-thumb: #424242;
+    --text-dim: #bbbbbb;
+    --text-nav: #cccccc;
+    --text-strong: #ffffff;
+    --head-bg: #2d2d30;
+    --hover-bg: #2a2d2e;
+    --active-bg: #37373d;
+    --guide: #404040;
+    --li-hover: rgba(255, 255, 255, 0.04);
+    --error: #f14c4c;
+    --placeholder: #6a6a6a;
+
+    color-scheme: dark;
+}
+
+/* ---------- Theme (VS Code Light+) ---------- */
+:root[data-theme="light"] {
+    --bg: #ffffff;
+    --bg-side: #f3f3f3;
+    --bg-tab: #ececec;
+    --bg-input: #eeeeee;
+    --border: #d4d4d4;
+    --text: #333333;
+    --muted: #008000;
+    --blue: #0000ff;
+    --light-blue: #001080;
+    --yellow: #795e26;
+    --orange: #a31515;
+    --purple: #af00db;
+    --teal: #1d6f87;
+    --green: #16825d;
+    --status: #007acc;
+
+    --selection: #add6ff;
+    --scroll-thumb: #c1c1c1;
+    --text-dim: #616161;
+    --text-nav: #444444;
+    --text-strong: #000000;
+    --head-bg: #e8e8e8;
+    --hover-bg: #e8e8e8;
+    --active-bg: #e4e6f1;
+    --guide: #d0d0d0;
+    --li-hover: rgba(0, 0, 0, 0.04);
+    --error: #e51400;
+    --placeholder: #8a8a8a;
+
+    color-scheme: light;
 }
 
 * {
@@ -40,7 +90,7 @@ body {
 }
 
 ::selection {
-    background: #264f78;
+    background: var(--selection);
 }
 
 ::-webkit-scrollbar {
@@ -52,7 +102,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #424242;
+    background: var(--scroll-thumb);
     border: 3px solid var(--bg);
     border-radius: 6px;
 }
@@ -86,7 +136,7 @@ a:hover {
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #bbbbbb;
+    color: var(--text-dim);
 }
 
 #explorer summary {
@@ -99,8 +149,8 @@ a:hover {
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #cccccc;
-    background: #2d2d30;
+    color: var(--text-nav);
+    background: var(--head-bg);
 }
 
 #explorer summary::-webkit-details-marker {
@@ -130,7 +180,7 @@ a:hover {
     align-items: center;
     gap: 8px;
     padding: 3px 8px 3px 26px;
-    color: #cccccc;
+    color: var(--text-nav);
     border-left: 2px solid transparent;
 }
 
@@ -142,8 +192,8 @@ a:hover {
 }
 
 #explorer li a:hover {
-    background: #2a2d2e;
-    color: #fff;
+    background: var(--hover-bg);
+    color: var(--text-strong);
     text-decoration: none;
 }
 
@@ -152,8 +202,8 @@ body:has(#profil:target) #explorer a[href="#profil"],
 body:has(#project:target) #explorer a[href="#project"],
 body:has(#contact:target) #explorer a[href="#contact"],
 body:not(:has(:target)) #explorer a[href="#profil"] {
-    background: #37373d;
-    color: #fff;
+    background: var(--active-bg);
+    color: var(--text-strong);
     border-left-color: var(--status);
 }
 
@@ -289,7 +339,7 @@ h4:has(+ ul)::after {
 }
 
 .project-card li:hover {
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--li-hover);
 }
 
 /* map example = code block with a file name comment */
@@ -362,7 +412,7 @@ p::after {
 section > :not(h1) {
     margin-left: 10px;
     padding-left: 28px;
-    border-left: 1px solid #404040;
+    border-left: 1px solid var(--guide);
 }
 
 /* level 2: everything inside "function ...() {" */
@@ -371,7 +421,7 @@ section > :not(h1) {
 .contact > div > :not(h3) {
     margin-left: 10px;
     padding-left: 24px;
-    border-left: 1px solid #404040;
+    border-left: 1px solid var(--guide);
 }
 
 /* the form already has a box, so keep its guide on the left only */
@@ -467,6 +517,22 @@ section > :not(h1) {
     font-size: 0.9rem;
 }
 
+/* source code line = comment: // source code: link */
+.project-card p.source-code {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.project-card p.source-code::before {
+    content: "// ";
+    color: var(--muted);
+}
+
+.project-card p.source-code::after {
+    content: "";
+}
+
 .project-card img {
     width: 140px;
     height: 90px;
@@ -537,19 +603,19 @@ textarea {
     font-family: inherit;
     font-size: 0.9rem;
     outline: none;
-    caret-color: #aeafad;
+    caret-color: var(--text);
     transition: border-color 0.2s, background 0.2s;
 }
 
 input:focus,
 textarea:focus {
     border-color: var(--status);
-    background: #2a2d2e;
+    background: var(--hover-bg);
 }
 
 input:required:invalid:not(:focus),
 textarea:required:invalid:not(:focus) {
-    border-color: #f14c4c;
+    border-color: var(--error);
 }
 
 textarea {
@@ -558,7 +624,7 @@ textarea {
 }
 
 textarea::placeholder {
-    color: #6a6a6a;
+    color: var(--placeholder);
 }
 
 form p {
@@ -652,6 +718,31 @@ footer li a img {
     height: 14px;
     width: auto;
     filter: brightness(0) invert(1);
+}
+
+#theme_toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+    height: 26px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 26px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+#theme_toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#theme_toggle:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: -2px;
 }
 
 /* ---------- Responsive ---------- */

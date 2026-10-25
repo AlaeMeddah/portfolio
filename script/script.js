@@ -23,6 +23,9 @@ function openProject(short) {
 }
 
 function handleProjectClick(event) {
+    if (event.target.closest("a")) {
+        return;
+    }
     const card = event.target.closest(".project-card");
     if (!card) {
         return;
@@ -35,6 +38,9 @@ function handleProjectClick(event) {
 }
 
 function handleProjectKeydown(event) {
+    if (event.target.closest("a")) {
+        return;
+    }
     if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         handleProjectClick(event);
@@ -57,7 +63,7 @@ const formStatus = document.getElementById("form_status");
 
 function showStatus(text, isError) {
     formStatus.textContent = text;
-    formStatus.style.color = isError ? "#f14c4c" : "var(--green)";
+    formStatus.style.color = isError ? "var(--error)" : "var(--green)";
     formStatus.hidden = false;
 }
 
@@ -95,4 +101,40 @@ async function handleContactSubmit(event) {
 
 if (contactForm && formStatus) {
     contactForm.addEventListener("submit", handleContactSubmit);
+}
+
+// ---------- Theme (dark / light) ----------
+const themeToggle = document.getElementById("theme_toggle");
+
+function getTheme() {
+    return document.documentElement.dataset.theme === "light" ? "light" : "dark";
+}
+
+function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    if (!themeToggle) {
+        return;
+    }
+    // the button shows the theme you will switch TO
+    if (theme === "light") {
+        themeToggle.textContent = "\u263E\uFE0E dark";
+        themeToggle.setAttribute("aria-label", "Switch to dark mode");
+    } else {
+        themeToggle.textContent = "\u2600\uFE0E light";
+        themeToggle.setAttribute("aria-label", "Switch to light mode");
+    }
+}
+
+function handleThemeToggle(event) {
+    const newTheme = getTheme() === "light" ? "dark" : "light";
+    applyTheme(newTheme);
+    try {
+        localStorage.setItem("theme", newTheme);
+    } catch (error) {
+    }
+}
+
+if (themeToggle) {
+    applyTheme(getTheme());
+    themeToggle.addEventListener("click", handleThemeToggle);
 }

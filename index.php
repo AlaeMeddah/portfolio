@@ -33,9 +33,9 @@
                     <li><a href="tel:+33757875953">+33 7 57 87 59 53</a></li>
                 </ul>
                 <ul>
-                    <li><a href="https://drive.google.com/file/d/13HjWXQl49yVHvf6nlnnoD735AmguyCcP/view?usp=sharing">cv</a></li>
-                    <li><a href="https://github.com/AlaeMeddah"><img src="img/GitHub_Invertocat_Black.png" alt="github logo">github</a></li>
-                    <li><a href="https://www.linkedin.com/in/alae-meddah"><img src="img/InBug-Black.png" alt="linkedin logo">linkedin</a></li>
+                    <li><a href="https://drive.google.com/file/d/13HjWXQl49yVHvf6nlnnoD735AmguyCcP/view?usp=sharing" target="_blank" rel="noopener noreferrer">cv</a></li>
+                    <li><a href="https://github.com/AlaeMeddah" target="_blank" rel="noopener noreferrer"><img src="img/GitHub_Invertocat_Black.png" alt="github logo">github</a></li>
+                    <li><a href="https://www.linkedin.com/in/alae-meddah" target="_blank" rel="noopener noreferrer"><img src="img/InBug-Black.png" alt="linkedin logo">linkedin</a></li>
                 </ul>
             </div>
         </footer>
