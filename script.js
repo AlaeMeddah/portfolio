@@ -48,3 +48,49 @@ if (projectsGrid && projectDetails) {
     projectsGrid.addEventListener("click", handleProjectClick);
     projectsGrid.addEventListener("keydown", handleProjectKeydown);
 }
+
+// ---------- Contact form ----------
+const contactForm = document.getElementById("contact_form");
+const formStatus = document.getElementById("form_status");
+
+function showStatus(text, isError) {
+    formStatus.textContent = text;
+    formStatus.style.color = isError ? "#f14c4c" : "var(--green)";
+    formStatus.hidden = false;
+}
+
+async function handleContactSubmit(event) {
+    event.preventDefault();
+    const submitButton = contactForm.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+    formStatus.hidden = true;
+
+    try {
+        const response = await fetch(contactForm.action, {
+            method: "POST",
+            body: new FormData(contactForm),
+        });
+
+        let data = {};
+        try {
+            data = await response.json();
+        } catch (parseError) {
+            data = {};
+        }
+
+        if (!response.ok) {
+            throw new Error(data.error || data.detail || "Error " + response.status);
+        }
+
+        showStatus("Message sent, thank you!", false);
+        contactForm.reset();
+    } catch (error) {
+        showStatus(error.message || "Network error, please try again.", true);
+    } finally {
+        submitButton.disabled = false;
+    }
+}
+
+if (contactForm && formStatus) {
+    contactForm.addEventListener("submit", handleContactSubmit);
+}
