@@ -75,6 +75,7 @@ try {
     $mail->SMTPSecure = $smtpPort === 465 ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = $smtpPort;
     $mail->CharSet = 'UTF-8';
+    $mail->Timeout = 15; // give up after 15 s instead of the 300 s default
 
     // the sender is our own account; the visitor is set as Reply-To
     $mail->setFrom($smtpUser, 'Portfolio');

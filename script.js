@@ -63,7 +63,7 @@ async function handleContactSubmit(event) {
     event.preventDefault();
     const submitButton = contactForm.querySelector("button[type='submit']");
     submitButton.disabled = true;
-    formStatus.hidden = true;
+    showStatus("Sending...", false);
 
     try {
         const response = await fetch(contactForm.action, {
