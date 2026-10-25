@@ -1,7 +1,63 @@
 <article class="project-card" id="minishell_full">
     <div>
         <h3>Minishell - Projet C (École 42)</h3>
-        <p>Full description</p>
+        <h4>Contexte et objectif</h4>
+        <ul>
+            <li>
+                <label for="minishell-contexte">Contexte</label>
+                <p id="minishell-contexte">Le projet <em>Minishell</em> (« as beautiful as a shell ») consiste à recréer en langage C un shell simple, inspiré de <code>bash</code>.</p>
+            </li>
+            <li>
+                <label for="minishell-objectif">Objectif</label>
+                <p id="minishell-objectif">Comprendre le fonctionnement des processus et des descripteurs de fichiers, et construire une interface en ligne de commande fonctionnelle.</p>
+            </li>
+        </ul>
+        <h4>Fonctionnalités principales</h4>
+        <ul>
+            <li>
+                <label for="minishell-prompt">Prompt et historique</label>
+                <p id="minishell-prompt">Le shell affiche un prompt pour chaque nouvelle commande et garde l'historique des commandes grâce à <code>readline</code>.</p>
+            </li>
+            <li>
+                <label for="minishell-parsing">Parsing rigoureux</label>
+                <p id="minishell-parsing">Analyse de la ligne de commande avec gestion des guillemets simples (<code>'</code>) et doubles (<code>"</code>), expansion des variables d'environnement (<code>$VAR</code>) et du code de sortie (<code>$?</code>).</p>
+            </li>
+            <li>
+                <label for="minishell-execution">Exécution des commandes</label>
+                <p id="minishell-execution">Les commandes sont retrouvées grâce à la variable <code>PATH</code> ou à un chemin relatif ou absolu, puis exécutées dans un processus enfant créé avec <code>fork</code> et lancé avec <code>execve</code>.</p>
+            </li>
+            <li>
+                <label for="minishell-redirections">Redirections et pipes</label>
+                <p id="minishell-redirections">Prise en charge des redirections <code>&lt;</code>, <code>&gt;</code>, <code>&gt;&gt;</code> et du heredoc <code>&lt;&lt;</code>, ainsi que des pipes <code>|</code> pour chaîner plusieurs commandes.</p>
+            </li>
+            <li>
+                <label for="minishell-builtins">Commandes intégrées</label>
+                <p id="minishell-builtins">Les built-ins <code>echo -n</code>, <code>cd</code>, <code>pwd</code>, <code>export</code>, <code>unset</code>, <code>env</code> et <code>exit</code> sont codés directement dans le shell.</p>
+            </li>
+            <li>
+                <label for="minishell-signaux">Gestion des signaux</label>
+                <p id="minishell-signaux">En mode interactif, <code>Ctrl-C</code> affiche un nouveau prompt, <code>Ctrl-D</code> quitte le shell et <code>Ctrl-\</code> est ignoré.</p>
+            </li>
+        </ul>
+        <h4>Compétences et technologies</h4>
+        <ul>
+            <li>
+                <label for="minishell-processus">Processus</label>
+                <p id="minishell-processus">Création de processus avec <code>fork</code>, exécution de programmes avec <code>execve</code> et récupération de leur code de sortie.</p>
+            </li>
+            <li>
+                <label for="minishell-fd">Descripteurs de fichiers</label>
+                <p id="minishell-fd">Gestion des entrées et sorties avec les descripteurs de fichiers pour relier les commandes entre elles par des pipes et des redirections.</p>
+            </li>
+            <li>
+                <label for="minishell-environnement">Environnement et signaux</label>
+                <p id="minishell-environnement">Manipulation des variables d'environnement, gestion des signaux et des entrées de l'utilisateur dans une interface interactive.</p>
+            </li>
+            <li>
+                <label for="minishell-compilation">Compilation et utilisation</label>
+                <p id="minishell-compilation">Projet écrit en C et compilé avec un <code>Makefile</code> : <code>make</code> puis <code>./minishell</code> pour lancer le shell.</p>
+            </li>
+        </ul>
     </div>
     <img src="minishell.gif" alt="demo de minishell">
 </article>
@@ -62,7 +118,6 @@
             </li>
         </ul>
     </div>
-    <img src="portfolio.gif" alt="demo de portfolio">
 </article>
 <article class="project-card" id="job-board_full">
     <div>
@@ -125,7 +180,6 @@
             </li>
         </ul>
     </div>
-    <img src="job-board.gif" alt="demo de job-board">
 </article>
 <article class="project-card" id="irc-chat_full">
     <div>
