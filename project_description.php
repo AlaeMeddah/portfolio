@@ -8,9 +8,44 @@
 <article class="project-card" id="portfolio_full">
     <div>
         <h3>Portfolio - Projet Web (Epitech)</h3>
-        <p>Full description</p>
+        <h4>Création d'un portfolio en PHP</h4>
+        <ul>
+            <li>
+                <label for="portfolio-presentation-du-projet">Présentation du projet</label>
+                <p id="portfolio-presentation-du-projet">Le projet <em>Portfolio</em> est un site personnel développé en PHP qui présente mon profil, mes projets et un moyen de me contacter. Son thème imite l'éditeur VS Code Dark+ : les titres s'écrivent comme du code (<code>class</code>, <code>function</code>, <code>const</code>, <code>let</code>) pour que le site reflète le métier de développeur.</p>
+            </li>
+        </ul>
+        <h4>Fonctionnalités principales</h4>
+        <ul>
+            <li>
+                <label for="portfolio-structure-modulaire">Structure modulaire</label>
+                <p id="portfolio-structure-modulaire">La page <code>index.php</code> assemble les sections profil, projets et contact à l'aide d'inclusions PHP, ce qui garde chaque partie du site dans son propre fichier.</p>
+            </li>
+            <li>
+                <label for="portfolio-navigation">Navigation façon éditeur</label>
+                <p id="portfolio-navigation">Un explorateur de fichiers fixe sur le côté permet de naviguer entre les sections, avec le fichier actif mis en évidence, et une barre d'état en bas de page reprend les liens principaux.</p>
+            </li>
+            <li>
+                <label for="portfolio-projets">Présentation des projets</label>
+                <p id="portfolio-projets">Chaque projet est affiché dans une carte qui s'ouvre sur sa description détaillée, accompagnée d'une démonstration en GIF.</p>
+            </li>
+            <li>
+                <label for="portfolio-contact">Formulaire de contact</label>
+                <p id="portfolio-contact">Le formulaire vérifie les champs obligatoires, puis envoie directement un e-mail à ma boîte de réception grâce à <code>PHPMailer</code> lors de l'envoi du message. Le site est déployé sur Render depuis mon dépôt GitHub.</p>
+            </li>
+        </ul>
+        <h4>Implémentation technique & Notions clés</h4>
+        <ul>
+            <li>
+                <label for="portfolio-css">Design en CSS</label>
+                <p id="portfolio-css">Thème défini avec des variables CSS, police <code>JetBrains Mono</code>, titres générés avec les pseudo-éléments <code>::before</code> et <code>::after</code> et guides d'indentation comme dans VS Code.</p>
+            </li>
+            <li>
+                <label for="portfolio-responsive">Responsive</label>
+                <p id="portfolio-responsive">Sur petit écran, l'explorateur devient une barre de navigation collée en haut de la page et la mise en page s'adapte à la largeur disponible.</p>
+            </li>
+        </ul>
     </div>
-    <img src="portfolio.gif" alt="demo de portfolio">
 </article>
 <article class="project-card" id="job-board_full">
     <div>
