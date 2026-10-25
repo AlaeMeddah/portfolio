@@ -1,9 +1,4 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require __DIR__ . '/vendor/autoload.php';
-
 header('Content-Type: application/json; charset=UTF-8');
 
 function respond($status, $payload)
@@ -52,47 +47,58 @@ if (mb_strlen($message) > 5000) {
     respond(400, ['error' => 'Message is too long (5000 characters max).']);
 }
 
-// ---------- SMTP settings (environment variables) ----------
-$smtpHost = getenv('SMTP_HOST') ?: 'smtp.gmail.com';
-$smtpPort = (int) (getenv('SMTP_PORT') ?: 587);
-$smtpUser = getenv('SMTP_USER');
-$smtpPass = getenv('SMTP_PASS');
-$mailTo = getenv('MAIL_TO') ?: $smtpUser;
+// ---------- Settings (environment variables) ----------
+$apiKey = getenv('RESEND_API_KEY');
+$mailTo = getenv('MAIL_TO');
+// without a verified domain, Resend only allows this sender
+$mailFrom = getenv('MAIL_FROM') ?: 'Portfolio <onboarding@resend.dev>';
 
-if (!$smtpUser || !$smtpPass || !$mailTo) {
+if (!$apiKey || !$mailTo) {
     respond(500, ['error' => 'Mail server is not configured.']);
 }
 
-// ---------- Send ----------
-$mail = new PHPMailer(true);
+// ---------- Send through the Resend HTTPS API ----------
+$body = "Nom : $name\n"
+    . "Prénom : $fname\n"
+    . "Email : $email\n"
+    . "Âge : " . ($age !== '' ? $age : '-') . "\n"
+    . "Téléphone : " . ($phone !== '' ? $phone : '-') . "\n\n"
+    . "Message :\n$message\n";
 
-try {
-    $mail->isSMTP();
-    $mail->Host = $smtpHost;
-    $mail->SMTPAuth = true;
-    $mail->Username = $smtpUser;
-    $mail->Password = $smtpPass;
-    $mail->SMTPSecure = $smtpPort === 465 ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = $smtpPort;
-    $mail->CharSet = 'UTF-8';
-    $mail->Timeout = 15; // give up after 15 s instead of the 300 s default
+$payload = json_encode([
+    'from' => $mailFrom,
+    'to' => [$mailTo],
+    'reply_to' => $email,
+    'subject' => 'Portfolio - message de ' . $fname . ' ' . $name,
+    'text' => $body,
+], JSON_UNESCAPED_UNICODE);
 
-    // the sender is our own account; the visitor is set as Reply-To
-    $mail->setFrom($smtpUser, 'Portfolio');
-    $mail->addAddress($mailTo);
-    $mail->addReplyTo($email, $fname . ' ' . $name);
+$curl = curl_init('https://api.resend.com/emails');
+curl_setopt_array($curl, [
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => $payload,
+    CURLOPT_HTTPHEADER => [
+        'Authorization: Bearer ' . $apiKey,
+        'Content-Type: application/json',
+    ],
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_CONNECTTIMEOUT => 10,
+    CURLOPT_TIMEOUT => 15,
+]);
 
-    $mail->Subject = 'Portfolio - message de ' . $fname . ' ' . $name;
-    $mail->Body = "Nom : $name\n"
-        . "Prénom : $fname\n"
-        . "Email : $email\n"
-        . "Âge : " . ($age !== '' ? $age : '-') . "\n"
-        . "Téléphone : " . ($phone !== '' ? $phone : '-') . "\n\n"
-        . "Message :\n$message\n";
+$response = curl_exec($curl);
+$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+$curlError = curl_error($curl);
+curl_close($curl);
 
-    $mail->send();
-    respond(200, ['success' => true]);
-} catch (Exception $e) {
-    error_log('Contact form mail error: ' . $mail->ErrorInfo);
+if ($response === false) {
+    error_log('Contact form mail error (curl): ' . $curlError);
     respond(500, ['error' => 'The message could not be sent. Please try again later.']);
 }
+
+if ($status < 200 || $status >= 300) {
+    error_log('Contact form mail error (Resend ' . $status . '): ' . $response);
+    respond(500, ['error' => 'The message could not be sent. Please try again later.']);
+}
+
+respond(200, ['success' => true]);
